@@ -1,0 +1,97 @@
+<script>
+$(document).ready(function(){
+ var i=1;
+$("#add_row").click(function(){
+ $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input id = 'tab' name='name"+i+"' type='text' placeholder='CRN' class='form-control input-md' required /> </td><td><input id='tab'  name='mail"+i+"' type='text' placeholder='MIX'  class='form-control input-md' required ></td><td><input id='tab' name='mobile"+i+"' type='text' placeholder='Mobile'  class='form-control input-md' required></td>");
+
+ $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+ i++;
+});
+$("#delete_row").click(function(){
+  if(i>1){
+$("#addr"+(i-1)).html('');
+i--;
+}
+
+});
+$('#submit').click(function(){
+   if($.trim($('#tab').val()) == ''){
+      alert('Classes can not be left blank!');
+   }
+   else
+      alert('Classes submitted successfully.')
+});
+
+
+});
+
+
+</script>
+
+<div class="container">
+  <h1>
+
+  </h1>
+  <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.name0.$error.required }">
+  <form name='form'>
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr >
+						<th class="text-center">
+							#
+						</th>
+						<th class="text-center">
+							CRN
+						</th>
+						<th class="text-center">
+							Email
+						</th>
+						<th class="text-center">
+							Mobile
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='addr0'>
+						<td>
+						1
+						</td>
+						<td>
+						<input id ='tab' type="text" name='name0'  placeholder='CRN' class="form-control" required />
+						</td>
+						<td>
+						<input id ='tab' type="text" name='mail0' placeholder='MIX' class="form-control" required />
+						</td>
+						<td>
+						<input id ='tab' type="text" name='mobile0' placeholder='Mobile' class="form-control" required />
+						</td>
+					</tr>
+                    <tr id='addr1'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</form>
+</div>
+	<a id="add_row" class="btn btn-default pull-left">+</a><a id='delete_row' class="pull-right btn btn-default">-</a>
+
+  <center><a id = 'submit' href="#/userhome" type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Submit</a></center>
+
+  <div class="row marketing">
+    <h4>-Class Interactions</h4>
+    <p>
+      Use the '+' and '-' buttons to add additonal classes fields. Then, submit your classes using the submit buttton.
+    </p>
+
+    <h4>-Email</h4>
+    <p>
+      Using your mix address, submit the chosen classes and you will be notified via email when the class opens up.
+    </p>
+
+    <h4>-Fast Reliable Platform</h4>
+    <p>Built on the latest version of AngularJS, the webapp enables seamless view interaction coupled with fast web and user data transmission.</p>
+  </div>
+
+</div>
